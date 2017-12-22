@@ -6,4 +6,6 @@ package ylj.butf_api;
  */
 
 public interface ViewBinder<T> {
+    void bindView(T host,Object object,ViewFinder finder);
+    void  unBindView(T host);
 }
