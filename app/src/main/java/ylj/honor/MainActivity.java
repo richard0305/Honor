@@ -3,6 +3,7 @@ package ylj.honor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
@@ -10,18 +11,25 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
 
+import ylj.butf_annotation.BindView;
+import ylj.butf_api.MoViewBinder;
 import ylj.requst.ReqParam;
 import ylj.requst.ReqType;
 import ylj.requst.ReqUrl;
 
 
 public class MainActivity extends AppCompatActivity {
+    @BindView(R.id.tvBUFF)
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MoViewBinder.bind(this);
         testApi();
+
+        tv.setText("nihao ");
     }
 
     private void testApi() {
